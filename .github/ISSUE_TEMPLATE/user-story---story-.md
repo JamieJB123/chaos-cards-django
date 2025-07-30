@@ -7,16 +7,16 @@ assignees: ''
 
 ---
 
-**User Story**
+# User Story
 
 As a **user**, I can **capability** so that I can **received benefit**.
 
-**Acceptance Criteria:**
-- 
-- 
-- 
+## Acceptance Criteria:
+-
+-
+-
 
-* *Tasks:**
-[]
-[]
-[]
+## Tasks:
+ - [ ]
+ - [ ]
+ - [ ]
