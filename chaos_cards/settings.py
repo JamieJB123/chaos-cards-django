@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',  # Cloudinary storage backend
+    'cloudinary',  # Cloudinary for image storage
     'chaos_app',  # Custom app for the chaos cards project
 ]
 
