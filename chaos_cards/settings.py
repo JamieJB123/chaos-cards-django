@@ -18,6 +18,7 @@ if os.path.isfile('env.py'): # This file does not exist on the deployed version
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["chaos-cards-de954de9fb2a.herokuapp.com", "127.0.0.1",]
 
@@ -61,7 +62,7 @@ ROOT_URLCONF = 'chaos_cards.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],  # Points to the templates folder in the root directory
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
