@@ -3,6 +3,22 @@ body {
     background-color: #1d6347;
 }
 
+/* Possible colours for header and footer
+
+Burgundy: #800020 — a classic deep burgundy with rich,
+warm undertones.
+Wine Red: #8B0000 — a dark,
+intense wine color.
+Maroon: #800000 — a deep,
+muted red with brown undertones.
+Deep Burgundy: #610b22 — an even darker,
+more muted burgundy. */
+
+#navbar {
+    background-color: #212529;
+    border-bottom: 2px solid #ff3c38;
+    color: #6c8ead;
+}
 /* Header */
 header {
     margin-top: -3vh;
@@ -53,4 +69,66 @@ header {
     background-color: #1d6347;
     color: #ff3c38;
     border: 4px solid #ff3c38;
+}
+
+/* ------------------------------------------- Footer */
+
+/*Burgundy: #800020 — a classic deep burgundy with rich,
+warm undertones. Wine Red: #8B0000 — a dark,
+intense wine color. Maroon: #800000 — a deep,
+muted red with brown undertones. Deep Burgundy: #610b22 — an even darker,
+more muted burgundy. */
+
+#footer {
+    background-color: #212529;
+    width: 100%;
+    border-top: 2px solid #ff3c38;
+}
+
+#footer .footer-text * {
+    margin-bottom: 0.5rem;
+}
+
+/* Override Bootstrap styling which was preventing copyright info and social links spacing */
+#footer .row>* {
+    flex-shrink: 1;
+    width: auto;
+}
+
+/* Text Styling */
+/* Mimic h4 style to preserve semantic HTML */
+.header {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.copyright {
+    font-size: small;
+}
+
+/* Enable layout styling of social links */
+#footer ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0;
+    min-width: 10rem;
+}
+
+/* Style social links */
+#footer ul a {
+    color: var(--dark-text-color);
+    font-size: 2rem;
+    transition: color 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+#footer ul a:hover {
+    color: var(--highlight-color2);
+}
+
+#footer ul a:active {
+    border: 2px dashed var(--highlight-color2);
+    border-radius: 20%;
 }
