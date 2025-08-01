@@ -132,3 +132,8 @@ more muted burgundy. */
     border: 2px dashed var(--highlight-color2);
     border-radius: 20%;
 }
+
+/* My Cards page */
+#user-cards .card {
+    min-height: 364px;
+}

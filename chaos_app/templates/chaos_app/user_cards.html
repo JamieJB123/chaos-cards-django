@@ -4,17 +4,16 @@
 
 <h1 class="text-center my-4">My Cards</h1>
 
-<div class="container-fluid">
+<div class="container-fluid" id="user-cards">
     <div class="row">
         {% for card in cards %}
         <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
             <div class="card mx-auto">
-                {% comment %} {% if card.featured_image.url|slice:"-11:" == "placeholder" %} {% endcomment %}
                 {% if 'placeholder' in card.featured_image.url %}
                 <img src="{% static 'images/default-image.png' %}" alt="Cartoon image of a roulette wheel." class="card-img-top">
                 {% else %}
                 <img src="{{ card.featured_image.url }}" alt="{{ card.title }}">
-                {% endif %}"
+                {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{ card.title }}</h5>
                     <p class="card-text mt-2">{{ card.content }}</p>
@@ -23,8 +22,8 @@
             </div>
             <hr>
             <div class="text-center mt-2">
-                {% comment %} <a href="{% url 'edit_card' card.id %}" class="btn btn-outline-primary btn-sm">Edit</a>
-                <a href="{% url 'delete_card' card.id %}" class="btn btn-outline-danger btn-sm">Delete</a> {% endcomment %}
+                <a href="{% url 'edit_card' card.id %}" class="btn btn-outline-primary btn-sm">Edit</a>
+                <a href="{% url 'delete_card' card.id %}" class="btn btn-outline-danger btn-sm">Delete</a> 
             </div>
         </div>
         {% endfor %}
