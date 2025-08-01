@@ -2,8 +2,10 @@ asgiref==3.9.1
 certifi==2025.7.14
 charset-normalizer==3.4.2
 cloudinary==1.44.1
+crispy-bootstrap5==2025.6
 Django==5.2.4
 django-cloudinary-storage==0.3.0
+django-crispy-forms==2.4
 django-database-url==1.0.3
 gunicorn==23.0.0
 idna==3.10
