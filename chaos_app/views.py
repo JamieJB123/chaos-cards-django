@@ -14,7 +14,7 @@ class UserCardsView(LoginRequiredMixin, ListView):
     model = Card
     template_name = 'chaos_app/user_cards.html'
     context_object_name = 'cards'
-    paginate_by = 12
+    paginate_by = 12 
 
     def get_queryset(self):
         """

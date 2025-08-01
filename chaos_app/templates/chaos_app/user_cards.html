@@ -4,67 +4,33 @@
 
 <h1 class="text-center my-4">My Cards</h1>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         {% for card in cards %}
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
+        <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
             <div class="card mx-auto">
+                {% comment %} {% if card.featured_image.url|slice:"-11:" == "placeholder" %} {% endcomment %}
+                {% if 'placeholder' in card.featured_image.url %}
                 <img src="{% static 'images/default-image.png' %}" alt="Cartoon image of a roulette wheel." class="card-img-top">
+                {% else %}
+                <img src="{{ card.featured_image.url }}" alt="{{ card.title }}">
+                {% endif %}"
                 <div class="card-body">
                     <h5 class="card-title">{{ card.title }}</h5>
                     <p class="card-text mt-2">{{ card.content }}</p>
+                    <p> {{ card.created_on|date:"F j, Y" }}</p>
                 </div>
             </div>
+            <hr>
             <div class="text-center mt-2">
-                <a href="{% url 'edit_card' card.id %}" class="btn btn-outline-primary btn-sm">Edit</a>
-                <a href="{% url 'delete_card' card.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+                {% comment %} <a href="{% url 'edit_card' card.id %}" class="btn btn-outline-primary btn-sm">Edit</a>
+                <a href="{% url 'delete_card' card.id %}" class="btn btn-outline-danger btn-sm">Delete</a> {% endcomment %}
             </div>
         </div>
         {% endfor %}
     </div>
 </div>
 
-<!-- card list content starts here -->
-<div class="container-fluid">
-    <div class="row">
-
-        <!-- Cards -->
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for card in post_list %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
-                                {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top" src="{% static 'images/default.jpg' %}"
-                                alt="placeholder image">
-                                {% else %}
-                                <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
-                                {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
-                                </div>
-                            </div>
-                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                                <h2 class="card-title">{{ post.title }}</h2>
-                                <p class="card-text">{{post.excerpt}}</p>
-                            </a>
-
-                            <hr />
-                            <p class="card-text text-muted h6">{{ post.created_on}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                {% if forloop.counter|divisibleby:4 %}
-            </div>
-            <div class="row">
-                {% endif %}
-                {% endfor %}
-            </div>
-        </div>
-    </div>
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
