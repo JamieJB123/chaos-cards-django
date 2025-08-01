@@ -7,7 +7,7 @@ class Card(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='cards')
     title = models.CharField(max_length=200)
     content = models.TextField(max_length=500)
-    featured_image = CloudinaryField('image', blank=True, null=True)
+    featured_image = CloudinaryField('image', default='placeholder', blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
