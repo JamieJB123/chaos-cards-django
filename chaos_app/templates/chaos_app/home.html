@@ -22,9 +22,24 @@
                         <p class="card-text mt-2">Invitation unknown...</p>
                     </div>
                 </div>
-                <button type="button" class="btn btn-outline-secondary mt-4">Spin</button>
+                <form method="get" action="{% url 'spin_card' %}">
+                    <button type="submit" class="btn btn-outline-secondary mt-4 ">Spin</button>
+                </form>
             </div>
         </section>
+        {% if random_card %}
+        <div id="demo-card" class="card mx-auto">
+            <img src="{{random_card.featured_image}}" alt="random_card.title">
+            <div class="card-body">
+                <h5 class="card-title">{{random_card.title}}</h5>
+                <p class="card-text mt-2">{{random_card.content}}</p>
+            </div>
+        </div>
+        {% else %}
+        <div class="alert alert-warning text-center mt-4">
+            <p>You have no cards yet. Create your own cards to spin the wheel of chaos!</p>
+        </div>
+        {% endif %}
     </div>
     {% else %}
     <header class="container text-center mb-4 d-flex flex-column justify-content-center">

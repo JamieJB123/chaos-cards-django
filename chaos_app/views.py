@@ -1,3 +1,4 @@
+import random
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
@@ -11,6 +12,25 @@ from .forms import CardForm
 # Home page view
 def home(request):
     return render(request, 'chaos_app/home.html')
+
+#Random Card Generator View
+@login_required
+def random_card_view(request):
+    """
+    Display a random card from the user's collection.
+    If the user has no cards, display a message indicating that.
+    """
+    user_cards = Card.objects.filter(user=request.user)
+    print(f'User cards: {user_cards}')
+    print(f'Cards existL {user_cards.exists()}')
+    if user_cards.exists():
+        random_card = random.choice(user_cards)  # Select a random card if cards exist
+    else:
+        random_card = None  # Set to None if no cards exist
+
+    return render(request, 'home.html', {
+        'random_card': random_card,
+    })
 
 # Card list view
 ############################### Function-based view
