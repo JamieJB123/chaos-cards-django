@@ -45,6 +45,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',  # Required for django-allauth
+    'allauth',  # Django Allauth for authentication
+    'allauth.account',  # Django Allauth account management
+    'allauth.socialaccount',  # Django Allauth social account management
     'cloudinary_storage',  # Cloudinary storage backend
     'cloudinary',  # Cloudinary for image storage
     'crispy_forms',
@@ -52,6 +56,15 @@ INSTALLED_APPS = [
     'chaos_app',  # Custom app for the chaos cards project
 ]
 
+# Django Allauth settings
+SITE_ID = 1  # Required for django-allauth
+LOGIN_REDIRECT_URL = '/'  # Redirect after successful login
+LOGOUT_REDIRECT_URL = '/'  # Redirect after logout
+ACCOUNT_LOGIN_METHODS = {'username'}  # Use username for authentication
+ACCOUNT_SIGNUP_FIELDS = ['username', 'password1', 'password2']  # Fields required during signup
+ACCOUNT_EMAIL_VERIFICATION = 'none'  # Email verification settings
+
+# Crispy Forms settings
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
@@ -63,6 +76,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'chaos_cards.urls'

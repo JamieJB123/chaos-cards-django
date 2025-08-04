@@ -1,8 +1,9 @@
 # filepath: chaos_app/urls.py
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('accounts/', include('allauth.urls')),  # Include django-allauth URLs
     path('my-cards/', views.user_cards_view, name='user_cards'),
 ]
