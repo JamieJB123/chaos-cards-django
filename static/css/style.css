@@ -161,3 +161,12 @@ more muted burgundy. */
 #user-cards .card {
     min-height: 364px;
 }
+
+/* Registration Page */
+
+.btn-signup {
+    background-color: #fff275;
+    color: #333;
+    font-weight: bold;
+    border: 2px solid #333;
+}

@@ -60,8 +60,8 @@ INSTALLED_APPS = [
 SITE_ID = 1  # Required for django-allauth
 LOGIN_REDIRECT_URL = '/'  # Redirect after successful login
 LOGOUT_REDIRECT_URL = '/'  # Redirect after logout
-ACCOUNT_LOGIN_METHODS = {'username'}  # Use username for authentication
 ACCOUNT_SIGNUP_FIELDS = ['username', 'password1', 'password2']  # Fields required during signup
+ACCOUNT_LOGIN_METHODS = {'username'}  # Use username for authentication
 ACCOUNT_EMAIL_VERIFICATION = 'none'  # Email verification settings
 
 # Crispy Forms settings
