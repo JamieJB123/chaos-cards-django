@@ -77,7 +77,23 @@ def user_cards_view(request):
         'page_obj': page_obj,
     })
 
+def edit_card_view(request, card_id):
+    """
+    Edit an existing card created by the logged-in user.
 
+    """
+    if request.method == "POST":
+        card = Card.objects.get(id=card_id, user=request.user)
+        form = CardForm(request.POST, request.FILES, instance=card)
+        if form.is_valid():
+            card = form.save(commit=False)
+            card.user = request.user
+            card.save()
+            messages.add_message(request, messages.SUCCESS, "Card updated successfully!")
+            return redirect('user_cards')
+        else:
+            messages.add_message(request, messages.ERROR, "Error updating card. Please try again.")
+    return redirect('user_cards')
 
 ########################## Class-based view
 
