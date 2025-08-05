@@ -4,7 +4,6 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('accounts/', include('allauth.urls')),  # Include django-allauth URLs
     path('my-cards/', views.user_cards_view, name='user_cards'),
     path('spin/', views.random_card_view, name='spin_card'),
 ]
