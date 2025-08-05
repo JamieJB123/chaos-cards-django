@@ -78,6 +78,10 @@ header {
     letter-spacing: 1px;
 }
 
+.orange-title {
+    color: #ff3c38;
+    border-bottom: 3px solid #ff3c38;
+}
 /* ------------------------------------------- Footer */
 
 /*Burgundy: #800020 — a classic deep burgundy with rich,

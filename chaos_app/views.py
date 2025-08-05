@@ -11,7 +11,15 @@ from .forms import CardForm
 
 # Home page view
 def home(request):
-    return render(request, 'chaos_app/home.html')
+    """Render the home page of the application.
+    Home view differs depending on authentication status:
+    - If the user is authenticated, see a basic home page with option to play the game.
+    - If the user is not authenticated, they see a more descriptive home page with option to register or log-in.
+    This is handled in the template.
+    """
+    return render(request, 'chaos_app/home.html', {
+        'spin_attempted': False,  # Flag to indicate if the spin button has been pressed
+    })
 
 #Random Card Generator View
 @login_required
@@ -22,14 +30,17 @@ def random_card_view(request):
     """
     user_cards = Card.objects.filter(user=request.user)
     print(f'User cards: {user_cards}')
-    print(f'Cards existL {user_cards.exists()}')
+    print(f'Cards exist: {user_cards.exists()}')
     if user_cards.exists():
         random_card = random.choice(user_cards)  # Select a random card if cards exist
+        spin_attempted = True # Set a flag to indicate that a spin was attempted
     else:
         random_card = None  # Set to None if no cards exist
+        spin_attempted = True # Still set the flag to indicate a spin was attempted
 
-    return render(request, 'home.html', {
+    return render(request, 'chaos_app/home.html', {
         'random_card': random_card,
+        'spin_attempted': spin_attempted,  # Pass the flag to the template
     })
 
 # Card list view
