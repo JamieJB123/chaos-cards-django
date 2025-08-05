@@ -1,5 +1,6 @@
 import random
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from .models import Card
@@ -57,7 +58,10 @@ def user_cards_view(request):
             card = form.save(commit=False)
             card.user = request.user
             card.save()
+            messages.add_message(request, messages.SUCCESS, 'Card created successfully!')
             return redirect('user_cards')
+        else:
+            messages.add_message(request, messages.ERROR, 'Error creating card. Please try again.')
     else:
         form = CardForm()
 

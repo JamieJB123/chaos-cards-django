@@ -19,6 +19,19 @@ more muted burgundy. */
     border-bottom: 2px solid #ff3c38;
     color: #6c8ead;
 }
+/* Alert Messages */
+.success {
+    color: #6c8ead;
+    font-weight: bold;
+    background-color: #fff275;
+    border: 4px solid #6c8ead;
+}
+.error {
+    color: #6c8ead;
+    font-weight: bold;
+    background-color: #ff3c38;
+    border: 4px solid #6c8ead;
+}
 /* Header */
 header {
     margin-top: -3vh;
