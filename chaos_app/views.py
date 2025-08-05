@@ -66,7 +66,7 @@ def user_cards_view(request):
         form = CardForm()
 
     user_cards = Card.objects.filter(user=request.user).order_by('-created_on')
-    paginator = Paginator(user_cards, 12)
+    paginator = Paginator(user_cards, 10)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -94,6 +94,18 @@ def edit_card_view(request, card_id):
         else:
             messages.add_message(request, messages.ERROR, "Error updating card. Please try again.")
     return redirect('user_cards')
+
+def delete_card_view(request, card_id):
+    """
+    Delete an existing card created by the logged-in user.
+    """
+    card = Card.objects.get(id=card_id, user=request.user)
+    if card:
+        card.delete()
+        messages.add_message(request, messages.SUCCESS, "Card deleted successfully!")
+    else:
+        messages.add_message(request, messages.ERROR, "Error deleting card. Card not found.")
+    return redirect("user_cards")
 
 ########################## Class-based view
 

@@ -5,9 +5,9 @@ const formTitleInput = document.getElementById('id_title');
 const formContent = document.getElementById('id_content');
 const submitButton = document.getElementById('submit-btn');
 
-// const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
-// const deleteButtons = document.querySelectorAll('.delete-btn');
-// const deleteConfirm = document.getElementById('deleteConfirm');
+const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+const deleteButtons = document.querySelectorAll('.delete-btn');
+const deleteConfirm = document.getElementById('deleteConfirm');
 
 /**
  * Initialises edit functionality for the provided edit buttons.
@@ -37,4 +37,13 @@ for (let button of editButtons) {
         // Refocus on title input field for user convenience
         formTitleInput.focus();
 })
+}
+
+// Delete functionality for delete buttons
+for (let button of deleteButtons) {
+    button.addEventListener('click', (e) => {
+        let cardId = e.target.dataset.cardId;
+        deleteConfirm.href = `/my-cards/delete-card/${cardId}/`;
+        deleteModal.show();
+    })
 }
