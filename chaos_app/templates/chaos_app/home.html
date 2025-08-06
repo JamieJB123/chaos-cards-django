@@ -23,7 +23,7 @@
                     <!-- If user pressed spin AND user has created cards, display random card -->
                 <div id="demo-card" class="card mx-auto">
                     {% if 'placeholder' in random_card.featured_image.url %}
-                    <img src="{% static 'images/default-image.png' %}" alt="Default image">
+                    <img src="{% static 'images/default-image.webp' %}" alt="Default image">
                     {% else %}
                     <img src="{{ random_card.featured_image.url }}" alt="{{ random_card.title }}">
                     {% endif %}

@@ -3,5 +3,39 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            {% if 'placeholder' in about.profile_image.url %}
+            <img src="{% static 'images/randomness.webp' %}" class="img-fluid mt-5" alt="Randomness Image">
+            {%else %}
+            <img src="{{ about.profile_image.url }}" class="img-fluid mt-5" alt="Randomness Image">
+            {% endif %}
+        </div>
+        <div class="col-md-8 about-content">
+            <h1>{{about.title}}</h1>
+            <hr>
+            <p>{{about.content | safe }}</p>
+            <p>Last updated on: {{about.updated_on|date:"F j, Y"}}</p>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <h2>Get in Touch</h2>
+            <p>If you would like to get in touch with us, if you have any feedback or suggestions, or if you would like to collaborate with us, please fill out the form below:</p>
+            <form method="post" action={% url 'about' %}>
+                {% csrf_token %}
+                {{ form | crispy }}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
 {% endblock %}
 

@@ -170,3 +170,13 @@ more muted burgundy. */
     font-weight: bold;
     border: 2px solid #333;
 }
+
+/* About Page */
+
+.about-content {
+    background-color: #fff275;
+    border-radius: 10px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.52);
+}
+
+
