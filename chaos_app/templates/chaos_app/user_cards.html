@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<h1 class="text-center my-4">My Cards</h1>
+<h1 class="text-center my-4 display-1">My Cards</h1>
 
 <div class="container" id="user-cards">
     <div class="row">
@@ -49,12 +49,12 @@
 
     {% if is_paginated %}
     <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
+        <ul class="pagination justify-content-center mt-4">
             {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number}}" class="page-link">&laquo; PREV</a></li>
+            <li><a href="?page={{ page_obj.previous_page_number}}" class="btn btn-warning">&laquo; PREV</a></li>
             {% endif %}
             {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            <li><a href="?page={{ page_obj.next_page_number }}" class="btn btn-warning"> NEXT &raquo;</a></li>
             {% endif %}
         </ul>
     </nav>

@@ -60,7 +60,7 @@ header {
 
 #container {
     background-color: #ff3c38;
-    padding: 30px 50px;
+    padding: 5px 45px 20px;
     border-radius: 10px;
     border: 4px solid black;
     ;
@@ -178,5 +178,26 @@ more muted burgundy. */
     border-radius: 10px;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.52);
 }
+.feedback-form {
+    background-color: #fff275;
+    border-radius: 10px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.52);
+    padding: 20px;
+}
 
+/* Media Queries */
+/* Home page. Ensure card container doesn't exceed screen-width on screen-sizes < 425px */
+
+@media screen and (max-width: 425px) {
+    #container {
+        max-width: 100%;
+        padding: 0px 25px 15px;
+    }
+    #demo-card {
+        max-width: 100%;
+    }
+    #card-container {
+        margin-bottom: 2rem;
+    }
+}
 

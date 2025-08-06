@@ -7,7 +7,7 @@
     <!-- Different homepages are displayed depending on whether the user is authenticated-->
     <!-- If user authenticated display basic hero message and option to play card game -->
     {% if user.is_authenticated %}
-    <div class="d-flex align-items-center my-auto">
+    <div class="d-flex flex-column flex-md-row align-items-center my-auto">
 
         <header class="container text-center mb-4 d-flex flex-column justify-content-center">
             <h1 class="display-1">Chaos Cards</h1>
@@ -15,7 +15,7 @@
             <p id="small">For those hungry for a bit of hazard and fed up with all the predictable monotony.</p>
         </header>
 
-        <section class="container text-center d-flex justify-content-center">
+        <section id="card-container" class="container text-center d-flex justify-content-center">
             <div id="container">
             <!-- Check first if spin has been pressed to determine what to display-->
             {% if spin_attempted %}
@@ -56,7 +56,7 @@
                 </form>
             {% else %}
                 <form method="get" action="{% url 'spin_card' %}">
-                    <button type="submit" class="btn btn-outline-secondary mt-4">Spin</button>
+                    <button type="submit" class="btn btn-outline-secondary mt-2">Spin</button>
                 </form>
             {% endif %}
             </div>
