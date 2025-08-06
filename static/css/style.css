@@ -14,10 +14,34 @@ muted red with brown undertones.
 Deep Burgundy: #610b22 — an even darker,
 more muted burgundy. */
 
+/*--------------------------------------------- Navbar Styles */
 #navbar {
     background-color: #212529;
     border-bottom: 2px solid #ff3c38;
-    color: #6c8ead;
+}
+
+.navbar-brand {
+    color: #1d6347;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.nav-link {
+    color: #fff275;
+    letter-spacing: 1px;
+    text-decoration: underline;
+}
+.navbar-nav .nav-link.active {
+    color: #ff3c38;
+    text-decoration: underline;
+}
+
+.navbar-toggler {
+    border: 2px solid #ff3c38;
+    background-color: #1d6347;
+}
+
+.navbar-toggler-icon {
+    color: #ff3c38;
 }
 /* Alert Messages */
 .success {
@@ -109,8 +133,12 @@ more muted burgundy. */
     border-top: 2px solid #ff3c38;
 }
 
-#footer .footer-text * {
+#footer p {
     margin-bottom: 0.5rem;
+    color: #1d6347;
+}
+#footer ul li {
+    color: #1d6347;
 }
 
 /* Override Bootstrap styling which was preventing copyright info and social links spacing */

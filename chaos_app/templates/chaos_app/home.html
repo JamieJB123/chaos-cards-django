@@ -25,7 +25,8 @@
                     {% if 'placeholder' in random_card.featured_image.url %}
                     <img src="{% static 'images/default-image.webp' %}" alt="Default image">
                     {% else %}
-                    <img src="{{ random_card.featured_image.url }}" alt="{{ random_card.title }}">
+                    <!-- Hardcoded slicing into url path to ensure links are https secured -->
+                    <img src="https://{{ random_card.featured_image.url|slice:"7:" }}" alt="{{ random_card.title }}">
                     {% endif %}
                     <div class="card-body">
                         <h5 class="card-title">{{ random_card.title }}</h5>

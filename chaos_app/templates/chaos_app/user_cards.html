@@ -15,10 +15,11 @@
                         {% if 'placeholder' in card.featured_image.url %}
                         <img src="{% static 'images/default-image.webp' %}" alt="Cartoon image of a roulette wheel." class="card-img-top" id="card-image{{card.id}}">
                         {% else %}
-                        <img src="{{ card.featured_image.url }}" alt="{{ card.title }}" class="card-img-top" id="card-image{{card.id}}">
+                        <!--Ensure the image url is secure through hardcoding - remove the http:// and replace with https://-->
+                        <img src="https://{{ card.featured_image.url|slice:'7:' }}" alt="{{ card.title }}" class="card-img-top" id="card-image{{card.id}}">
                         {% endif %}
                         <div class="card-body">
-                            <h5 class="card-title" id="card-title{{card.id}}">{{ card.title }}</h5>
+                            <h2 class="card-title" id="card-title{{card.id}}">{{ card.title }}</h2>
                             <p class="card-text mt-2" id="card-content{{card.id}}">{{ card.content }}</p>
                             <p> {{ card.created_on|date:"F j, Y" }}</p>
                         </div>
@@ -36,8 +37,8 @@
         <!-- Creating and editing cards form -->
         <div class="col-md-6 col-lg-4">
             <div class="card-body">
-                <h3 id="form-title">Create a Card</h3>
-                <p>Posting as: {{ user.username }}</p>
+                <h2 id="form-title">Create a Card<h3>
+                <p class="lead">Posting as: {{ user.username }}</p>
                 <form id="card-form" method="post" enctype="multipart/form-data">
                     {{ form | crispy }}
                     {% csrf_token %}

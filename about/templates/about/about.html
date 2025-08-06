@@ -13,7 +13,8 @@
             {% if 'placeholder' in about.profile_image.url %}
             <img src="{% static 'images/randomness.webp' %}" class="img-fluid mt-2" alt="Randomness Image">
             {%else %}
-            <img src="{{ about.profile_image.url }}" class="img-fluid mt-2" alt="Randomness Image">
+            <!-- Hardcoded url slicing to ensure that url links are https secure -->
+            <img src="https://{{ about.profile_image.url|slice:'7:' }}" class="img-fluid mt-2" alt="Randomness Image">
             {% endif %}
         </div>
         <div class="col-md-8 about-content">

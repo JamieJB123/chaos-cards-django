@@ -156,7 +156,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),] # Points to the static folder in the root directory
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Directory where collectstatic will place files
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
