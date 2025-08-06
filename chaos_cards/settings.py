@@ -53,7 +53,9 @@ INSTALLED_APPS = [
     'cloudinary',  # Cloudinary for image storage
     'crispy_forms',
     'crispy_bootstrap5',
+    'django_summernote', # Rich text editor for Django
     'chaos_app',  # Custom app for the chaos cards project
+    'about',  # Custom app for the about page
 ]
 
 # Django Allauth settings

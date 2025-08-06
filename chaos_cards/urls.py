@@ -19,7 +19,9 @@ from django.urls import path, include
 
 
 urlpatterns = [
+    path('about/', include('about.urls')),  # Include about app URLs
     path('accounts/', include('allauth.urls')),  # Include django-allauth URLs
     path('admin/', admin.site.urls),
+    path('summernote/', include('django_summernote.urls')),  # Include django-summernote URLs
     path('', include('chaos_app.urls')), # Include app URLs
 ]
