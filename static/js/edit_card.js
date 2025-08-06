@@ -42,8 +42,11 @@ for (let button of editButtons) {
 // Delete functionality for delete buttons
 for (let button of deleteButtons) {
     button.addEventListener('click', (e) => {
+        // Retrieve card ID from button's data attribute
         let cardId = e.target.dataset.cardId;
+        // Set the delete confirmation link on the modal to the card's delete URL view
         deleteConfirm.href = `/my-cards/delete-card/${cardId}/`;
+        // Show the delete confirmation modal
         deleteModal.show();
     })
 }

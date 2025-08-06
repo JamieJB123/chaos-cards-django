@@ -21,16 +21,16 @@ more muted burgundy. */
 }
 /* Alert Messages */
 .success {
-    color: #6c8ead;
+    color: #333;
     font-weight: bold;
-    background-color: #fff275;
-    border: 4px solid #6c8ead;
+    background-color: #3de04d;
+    border: 4px solid #333;
 }
 .error {
-    color: #6c8ead;
+    color: #333;
     font-weight: bold;
     background-color: #ff3c38;
-    border: 4px solid #6c8ead;
+    border: 4px solid #1d6347;
 }
 /* Header */
 header {
