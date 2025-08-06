@@ -13,7 +13,7 @@
                 <div class="col-lg-6 mb-4">
                     <div class="card mx-auto">
                         {% if 'placeholder' in card.featured_image.url %}
-                        <img src="{% static 'images/default-image.png' %}" alt="Cartoon image of a roulette wheel." class="card-img-top" id="card-image{{card.id}}">
+                        <img src="{% static 'images/default-image.webp' %}" alt="Cartoon image of a roulette wheel." class="card-img-top" id="card-image{{card.id}}">
                         {% else %}
                         <img src="{{ card.featured_image.url }}" alt="{{ card.title }}" class="card-img-top" id="card-image{{card.id}}">
                         {% endif %}
