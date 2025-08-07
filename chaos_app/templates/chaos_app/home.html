@@ -21,7 +21,7 @@
             {% if spin_attempted %}
                 {% if random_card %}
                     <!-- If user pressed spin AND user has created cards, display random card -->
-                <div id="demo-card" class="card mx-auto">
+                <div id="demo-card" class="card card-home mx-auto">
                     {% if 'placeholder' in random_card.featured_image.url %}
                     <img src="{% static 'images/default-image.webp' %}" alt="Default image">
                     {% else %}
@@ -41,7 +41,7 @@
                 {% endif %}
             {% else %}
                     <!-- If user has not pressed spin (i.e. have just loaded home page) display the demo card with the spin button -->
-                <div id="demo-card" class="card mx-auto">
+                <div id="demo-card" class="card card-home mx-auto">
                     <img src="{% static 'images/default-image.webp' %}" alt="Cartoon image of a roulette wheel.">
                     <div class="card-body">
                         <h2 class="card-title">Demo</h2>
