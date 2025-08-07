@@ -272,6 +272,23 @@ hr {
     border: 2px solid #333;
 }
 
+.auth-yb {
+    background-color: #ff7738;
+    border-radius: 10px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.52);
+    padding: 20px;
+}
+
+.link {
+    color: #3de04d;
+    font-weight: bold;
+    text-decoration: none;
+}
+.link:hover {
+    color: #fff275;
+    text-decoration: underline;
+}
+
 /* About Page */
 
 .about-content {
