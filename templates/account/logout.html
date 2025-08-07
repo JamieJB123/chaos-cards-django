@@ -7,15 +7,9 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
+        <div class="col-md-4 mt-3 offset-md-2 auth-yb">
             <h1 class="display-4">{% trans "Sign Out" %}</h1>
-
-            <p>{% trans 'Are you sure you want to sign out?' %}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-
+            <p class="mb-4">{% trans 'Are you sure you want to sign out?' %}</p>
             <form method="post" action="{% url 'account_logout' %}">
                 {% csrf_token %}
                 {% if redirect_field_value %}
