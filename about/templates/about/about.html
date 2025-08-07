@@ -20,7 +20,7 @@
         <div class="col-md-8 about-content">
             <h1>{{about.title}}</h1>
             <hr>
-            <p>{{about.content | safe }}</p>
+            {{about.content | safe }}
             <p>Last updated on: {{about.updated_on|date:"F j, Y"}}</p>
         </div>
     </div>
