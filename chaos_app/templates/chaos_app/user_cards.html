@@ -3,14 +3,17 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<h1 class="text-center my-4 display-1">My Cards</h1>
+<div class="mt-4 mb-5">
+<h1 class="text-center display-1">My Cards</h1>
+<hr class="one">
+</div>
 
 <div class="container" id="user-cards">
     <div class="row">
         <div class="col-md-6 col-lg-8">
             <div class="row">
                 {% for card in cards %}
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 card-mb">
                     <div class="card mx-auto">
                         {% if 'placeholder' in card.featured_image.url %}
                         <img src="{% static 'images/default-image.webp' %}" alt="Cartoon image of a roulette wheel." class="card-img-top" id="card-image{{card.id}}">
@@ -24,7 +27,7 @@
                             <p> {{ card.created_on|date:"F j, Y" }}</p>
                         </div>
                     </div>
-                    <hr>
+                    {% comment %} <hr> {% endcomment %}
                     <!-- Edit and delete buttons-->
                     <div class="text-center mt-2">
                         <button class="btn btn-primary edit-btn" data-card-id="{{ card.id }}">Edit</button>
