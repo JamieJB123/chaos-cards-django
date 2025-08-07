@@ -82,16 +82,13 @@ header {
     font-weight: bold;
 }
 
-.lead {
-    font-weight: 100px;
-}
-
+/*-------------------------------------------- About Page */
 hr {
     border: 3px solid #212529;
     opacity: 0.75;
     width: 75%;
 }
-
+/* -------------------------------------------Card Styling */
 /* Tweak card styling for home page */
 .card.card-home {
     margin-top: 2.5rem;
@@ -120,6 +117,7 @@ hr {
     font-weight: bold;
 }
 
+/* ------------------------------------Home Page Logged In */
 #container {
     background-color: #ff3c38;
     padding: 5px 45px 20px;
@@ -153,9 +151,23 @@ hr {
     letter-spacing: 1px;
 }
 
+/* -----------------------------------Home Page Logged Out */
 .orange-title {
     color: #ff3c38;
     border-bottom: 3px solid #ff3c38;
+}
+.yellow-background {
+    background-color: #fff275;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.52);
+}
+.large {
+    font-size: 1.7rem;
+    font-weight: 400;
+}
+.bold {
+    font-weight: 700;
 }
 /* ------------------------------------------- Footer Styles */
 

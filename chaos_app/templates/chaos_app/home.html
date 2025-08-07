@@ -11,8 +11,8 @@
 
         <header class="container text-center mb-4 d-flex flex-column justify-content-center">
             <h1 class="display-1">Chaos Cards</h1>
-            <p class="lead">It's simple. Hit spin and find out what fate shall bring.</p>
-            <p id="small">For those hungry for a bit of hazard and fed up with all the predictable monotony.</p>
+            <p class="lead">It's simple: Hit spin and discover what fate will bring.</p>
+            <p id="small">For those hungry for hazard and tired of the predictable monotony.</p>
         </header>
 
         <section id="card-container" class="container text-center d-flex justify-content-center">
@@ -66,10 +66,15 @@
     <!-- If user is not authenticated welcome them to the page, brief description and option to register or log-in -->
     {% else %}
     <header class="container text-center mb-4 d-flex flex-column justify-content-center">
-            <h1 class="display-1">Welcome to | <span class="orange-title">Chaos Cards</span></h1>
-            <p class="lead">It a simple idea. 'Hit spin and find out what fate shall bring'.</p>
-            <p id="small">This app is for those who feel a bit short-changed and numbed by the ever-revolving predictability and control of modern life. It's for those who want to loosen their grip and hand over control to the forces of chaos just a little bit.</p>
-            <p>Register or sign in to create your own cards and play the game.</p>
+        <div class="row">
+            <h1 class="display-1 mb-4">Welcome to | <span class="orange-title">Chaos Cards</span></h1>
+            <div class="yellow-background col-md-8 offset-md-2">
+            <!-- Welcome message and brief description of the app -->
+                <p class="lead large">It's simple: Hit spin and discover what fate will bring.</p>
+                <p class="lead">This website is for those who feel a little short-changed by the ever-revolving predictability of modern life. It's for those who want to hand control over to the forces of chaos just a little.</p>
+                <p class="lead bold">Register or sign in to create your own cards and play the game.</p>
+            </div>
+        </div>
             <div class="container mt-4 d-flex justify-content-center">
                 <div class="col-md-4">
                     <div class="row">
