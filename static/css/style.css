@@ -118,6 +118,13 @@ hr {
 }
 
 /* ------------------------------------Home Page Logged In */
+
+#header {
+    background-color: #fff275;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px rgba(0, 0, 0);
+}
 #container {
     background-color: #ff3c38;
     padding: 5px 45px 20px;
