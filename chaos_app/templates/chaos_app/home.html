@@ -29,7 +29,7 @@
                     <img src="https://{{ random_card.featured_image.url|slice:"7:" }}" alt="{{ random_card.title }}">
                     {% endif %}
                     <div class="card-body">
-                        <h5 class="card-title">{{ random_card.title }}</h5>
+                        <h2 class="card-title">{{ random_card.title }}</h2>
                         <p class="card-text mt-2">{{ random_card.content }}</p>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                 <div id="demo-card" class="card mx-auto">
                     <img src="{% static 'images/default-image.webp' %}" alt="Cartoon image of a roulette wheel.">
                     <div class="card-body">
-                        <h5 class="card-title">Demo</h5>
+                        <h2 class="card-title">Demo</h2>
                         <p class="card-text mt-2">Invitation unknown...</p>
                     </div>
                 </div>

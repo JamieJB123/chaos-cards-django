@@ -1,4 +1,5 @@
 const editButtons = document.querySelectorAll('.edit-btn');
+const formBody = document.getElementById('form-body');
 const cardForm = document.getElementById('card-form');
 const formTitle = document.getElementById('form-title');
 const formTitleInput = document.getElementById('id_title');
@@ -36,6 +37,7 @@ for (let button of editButtons) {
         cardForm.setAttribute('action', `/my-cards/edit_card/${cardId}/`);
         // Refocus on title input field for user convenience
         formTitleInput.focus();
+        formBody.classList.add('focus');
 })
 }
 
@@ -50,3 +52,4 @@ for (let button of deleteButtons) {
         deleteModal.show();
     })
 }
+
