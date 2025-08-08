@@ -96,6 +96,12 @@ hr {
 }
 
 /* Card styling for user-card page */
+
+/* Negative margin to ensure Chaos Cards intro text-box and card container are aligned horizontally when screen size is > 768px and 'no-card' message appears */
+
+#card-container {
+    margin-top: -20px;
+}
 .card-mb {
     margin-bottom: 3rem;
 }
@@ -304,6 +310,15 @@ hr {
 }
 
 /* Media Queries */
+
+/* Remove negative margin when elements stack vertically to ensure space between them */
+
+@media screen and (max-width: 768px) {
+    #card-container {
+        margin-top: 0px;
+    }
+}
+
 /* Home page. Ensure card container doesn't exceed screen-width on screen-sizes < 425px */
 
 @media screen and (max-width: 425px) {
@@ -319,3 +334,6 @@ hr {
     }
 }
 
+body {
+    color: #fff275
+}
