@@ -5,24 +5,27 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from .models import Card
 from .forms import CardForm
-# from django.views.generic import ListView
-# from django.contrib.auth.mixins import LoginRequiredMixin
 
-
+# Views
 
 # Home page view
+
 def home(request):
     """Render the home page of the application.
     Home view differs depending on authentication status:
-    - If the user is authenticated, see a basic home page with option to play the game.
-    - If the user is not authenticated, they see a more descriptive home page with option to register or log-in.
+    - If the user is authenticated, see a basic home page with option
+    to play the game.
+    - If the user is not authenticated, they see a more descriptive
+    home page with option to register or log-in.
     This is handled in the template.
     """
     return render(request, 'chaos_app/home.html', {
-        'spin_attempted': False,  # Flag to indicate if the spin button has been pressed
+        # Flag to indicate if the spin button has been pressed
+        'spin_attempted': False,
     })
 
-#Random Card Generator View
+# Random Card Generator View
+
 @login_required
 def random_card_view(request):
     """
@@ -33,19 +36,24 @@ def random_card_view(request):
     print(f'User cards: {user_cards}')
     print(f'Cards exist: {user_cards.exists()}')
     if user_cards.exists():
-        random_card = random.choice(user_cards)  # Select a random card if cards exist
-        spin_attempted = True # Set a flag to indicate that a spin was attempted
+        # Select a random card if cards exist
+        random_card = random.choice(user_cards)
+        # Set a flag to indicate that a spin was attempted
+        spin_attempted = True
     else:
-        random_card = None  # Set to None if no cards exist
-        spin_attempted = True # Still set the flag to indicate a spin was attempted
+        # Set to None if no cards exist
+        random_card = None
+        # Still set the flag to indicate a spin was attempted
+        spin_attempted = True
 
     return render(request, 'chaos_app/home.html', {
         'random_card': random_card,
-        'spin_attempted': spin_attempted,  # Pass the flag to the template
+        # Pass the flag to the template
+        'spin_attempted': spin_attempted,
     })
 
 # Card list view
-############################### Function-based view
+
 @login_required
 def user_cards_view(request):
     """
@@ -58,10 +66,12 @@ def user_cards_view(request):
             card = form.save(commit=False)
             card.user = request.user
             card.save()
-            messages.add_message(request, messages.SUCCESS, 'Card created successfully!')
+            messages.add_message(request, messages.SUCCESS,
+            'Card created successfully!')
             return redirect('user_cards')
         else:
-            messages.add_message(request, messages.ERROR, 'Error creating card. Please try again.')
+            messages.add_message(request, messages.ERROR,
+            'Error creating card. Please try again.')
     else:
         form = CardForm()
 
@@ -77,6 +87,7 @@ def user_cards_view(request):
         'page_obj': page_obj,
     })
 
+@login_required
 def edit_card_view(request, card_id):
     """
     Edit an existing card created by the logged-in user.
@@ -89,12 +100,15 @@ def edit_card_view(request, card_id):
             card = form.save(commit=False)
             card.user = request.user
             card.save()
-            messages.add_message(request, messages.SUCCESS, "Card updated successfully!")
+            messages.add_message(request, messages.SUCCESS,
+            "Card updated successfully!")
             return redirect('user_cards')
         else:
-            messages.add_message(request, messages.ERROR, "Error updating card. Please try again.")
+            messages.add_message(request, messages.ERROR,
+            "Error updating card. Please try again.")
     return redirect('user_cards')
 
+@login_required
 def delete_card_view(request, card_id):
     """
     Delete an existing card created by the logged-in user.
@@ -102,24 +116,9 @@ def delete_card_view(request, card_id):
     card = Card.objects.get(id=card_id, user=request.user)
     if card:
         card.delete()
-        messages.add_message(request, messages.SUCCESS, "Card deleted successfully!")
+        messages.add_message(request, messages.SUCCESS,
+        "Card deleted successfully!")
     else:
-        messages.add_message(request, messages.ERROR, "Error deleting card. Card not found.")
+        messages.add_message(request, messages.ERROR,
+        "Error deleting card. Card not found.")
     return redirect("user_cards")
-
-########################## Class-based view
-
-# class UserCardsView(LoginRequiredMixin, ListView):
-#     model = Card
-#     template_name = 'chaos_app/user_cards.html'
-#     context_object_name = 'cards'
-#     paginate_by = 12
-
-#     def get_queryset(self):
-#         """
-#         Return the list of cards created by the logged-in user,
-#         ordered by the date they were created, in descending order.
-#         """
-#         return Card.objects.filter(user=self.request.user).order_by('-created_on')
-
-
