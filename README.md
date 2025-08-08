@@ -371,7 +371,7 @@ I also tried inserting security into the Django templates. However, none of this
 ![Lighthouse test for logged-in home page](docs/testing/logged-in-home-lighthouse.png)
 
 **Logged-out Home:**
-![Lighthouse test for logged-out home page](docs/testing/home-loggedout-html.png)
+![Lighthouse test for logged-out home page](docs/testing/logout-lighthouse.png)
 
 **About Page:**
 ![Lighthouse test for About page](docs/testing/about-lighthouse.png)
