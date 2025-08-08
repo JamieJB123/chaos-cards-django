@@ -62,9 +62,12 @@
             {% endif %}
             </div>
         </section>
+    </div>
+    {% else %}
+
 
     <!-- If user is not authenticated welcome them to the page, brief description and option to register or log-in -->
-    {% else %}
+
     <header class="container text-center mb-4 d-flex flex-column justify-content-center">
         <div class="row">
             <h1 class="display-1 mb-4">Welcome to | <span class="orange-title">Chaos Cards</span></h1>
@@ -75,19 +78,19 @@
                 <p class="lead bold">Register or sign in to create your own cards and play the game.</p>
             </div>
         </div>
-            <div class="container mt-4 d-flex justify-content-center">
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a class="btn btn-warning mt-3 home-btn" href="{% url 'account_signup' %}">Register</a>
-                        </div>
-                        <div class="col-md-6">
-                            <a class="btn btn-info mt-3 home-btn" href="{% url 'account_login' %}">Log In</a>
-                        </div>
-                    <div>
-                </div
+        <div class="container mt-4 d-flex justify-content-center">
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a class="btn btn-warning mt-3 home-btn" href="{% url 'account_signup' %}">Register</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a class="btn btn-info mt-3 home-btn" href="{% url 'account_login' %}">Log In</a>
+                    </div>
+                </div>
             </div>
-        </header>
+        </div>
+    </header>
     {% endif %}
     {% endblock %}
 
