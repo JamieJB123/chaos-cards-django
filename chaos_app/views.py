@@ -1,5 +1,5 @@
 import random
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
@@ -33,8 +33,6 @@ def random_card_view(request):
     If the user has no cards, display a message indicating that.
     """
     user_cards = Card.objects.filter(user=request.user)
-    print(f'User cards: {user_cards}')
-    print(f'Cards exist: {user_cards.exists()}')
     if user_cards.exists():
         # Select a random card if cards exist
         random_card = random.choice(user_cards)
@@ -93,8 +91,8 @@ def edit_card_view(request, card_id):
     Edit an existing card created by the logged-in user.
 
     """
+    card = get_object_or_404(Card, id=card_id, user=request.user)
     if request.method == "POST":
-        card = Card.objects.get(id=card_id, user=request.user)
         form = CardForm(request.POST, request.FILES, instance=card)
         if form.is_valid():
             card = form.save(commit=False)
@@ -113,7 +111,7 @@ def delete_card_view(request, card_id):
     """
     Delete an existing card created by the logged-in user.
     """
-    card = Card.objects.get(id=card_id, user=request.user)
+    card = get_object_or_404(Card, id=card_id, user=request.user)
     if card:
         card.delete()
         messages.add_message(request, messages.SUCCESS,
