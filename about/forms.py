@@ -12,7 +12,7 @@ class FeedbackForm(forms.ModelForm):
                 'placeholder': 'Your Name',
             }),
             'email': forms.EmailInput(attrs={
-                'maxlength': '150',
+                'maxlength': '254',
                 'placeholder': 'Your Email'
             }),
             'message': forms.Textarea(attrs={

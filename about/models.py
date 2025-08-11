@@ -23,8 +23,8 @@ class CollaborateRequest(models.Model):
     Stores a single collaboration request message
     """
     name = models.CharField(max_length=200)
-    email = models.EmailField()
-    message = models.TextField()
+    email = models.EmailField(max_length=254)  # Standard email max length
+    message = models.TextField(max_length=500)  # Add reasonable limit
     read = models.BooleanField(default=False)
 
     def __str__(self):
