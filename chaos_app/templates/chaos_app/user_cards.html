@@ -29,8 +29,8 @@
                     </div>
                     <!-- Edit and delete buttons-->
                     <div class="text-center mt-2">
-                        <button class="btn btn-primary edit-btn" data-card-id="{{ card.id }}">Edit</button>
-                        <button class="btn btn-danger delete-btn" data-card-id="{{ card.id }}">Delete</button>
+                        <button class="btn edit-btn" data-card-id="{{ card.id }}">Edit</button>
+                        <button class="btn delete-btn" data-card-id="{{ card.id }}">Delete</button>
                     </div>
                 </div>
                 {% endfor %}
@@ -44,7 +44,7 @@
                 <form id="card-form" method="post" enctype="multipart/form-data">
                     {{ form | crispy }}
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
+                    <button type="submit" class="btn" id="submit-btn">Submit</button>
                 </form>
             </div>
         </div>
