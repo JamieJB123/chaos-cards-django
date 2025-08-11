@@ -319,17 +319,63 @@ My project involved a simple database structure with 4 models:
 
 ## AI Implementation:
 
-**Use Cases:**
+### AI Usage and Implementation
 
-- Generating user stories
-- Idea generation for user cards during development/testing
-- Assistance with Django view logic and template refactoring
-- Bug identification and optimisation suggestions
+AI was a valuable collaborator across idea generation, planning, development, and quality assurance — always used under careful human oversight.
 
-**Reflections:**
+**What AI contributed**
 
-- AI accelerated development by providing quick references and boilerplate code
-- Best results came when combining AI assistance with manual debugging and documentation reading
+**User Story Generation**
+
+Assisted in expanding and refining initial user stories.
+Generated complementary variants to explore different user perspectives and workflows.
+
+**Acceptance Criteria and Task Elaboration**
+
+Helped articulate clear, testable acceptance criteria aligned with business goals.
+Broke down high-level requirements into concrete tasks with logical sequencing and dependencies.
+
+**ERD and Planning Support**
+
+Useful for corroborating database design and entity relationships at the planning stage.
+
+**Django Project Setup Guidance**
+
+Served as a reference reminder for setup steps, project structure conventions, and recommended configuration order during initial scaffolding.
+
+**Debugging Aid**
+
+Provided hypothesis-generation and lightweight debugging guidance to explore potential root causes.
+I used insights to drive targeted investigations rather than accepting AI-generated fixes wholesale, ensuring diagnosis remained human-led.
+
+**Automated Testing Support**
+
+Assisted in drafting test scenarios, edge-case coverage, and test data patterns.
+Aided in outlining test hooks and fixtures, then validated the approach with manual review before implementation.
+
+**Boilerplate and Semantic Guidance**
+
+Offered boilerplate patterns for common tasks (e.g., serializers, views, forms, and tests) to accelerate setup while maintaining readability and consistency.
+Recommended semantic and accessibility improvements, with final decisions and changes implemented by myself.
+
+**Small, Supervised Code Generation**
+
+Used for small, well-defined, low-risk tasks under direct supervision.
+All generated code was reviewed, adapted, and integrated by me to ensure alignment with project standards and to avoid drift.
+
+### Reflections:
+
+**Human-in-the-loop**
+AI outputs were considered as suggestions, not solutions. I critically evaluated relevance, context, and implications before adopting anything.
+
+**Accessibility and Semantics**
+Accessibility and semantic clarity were prioritized. AI suggestions were reviewed case-by-case and refined as needed.
+
+**Outcome**
+
+The project benefited from accelerated ideation, clarified acceptance criteria, and structured planning, while ensuring that higher-level thinking remained my work.
+
+AI acted as a collaborative assistant and helped maintain focus on maintainability, accessibility, and correct architectural choices throughout development.
 
 ## Testing:
 
@@ -338,10 +384,60 @@ My project involved a simple database structure with 4 models:
 - Tested across Chrome, Firefox, Safari, and Edge
 - Mobile responsiveness tested on multiple devices and simulated in DevTools
 - Functional testing of all CRUD operations and wheel spin feature
+- Tested that messages were displayed in response to user actions
+- Tested form validation
+- Tested that error handling and security handling (e.g. if tried to edit / delete other users' forms)
 
 **Automated Testing:**
 
-- Django unit tests for views and models
+- Extensive unit testing was written to cover all views, forms and models in both the chaos_app app and about app.
+
+- **Chaos App**
+    - **Card Model**
+        - Testing to cover basic card creation and validation
+        - Testing string representation of models
+        - Test field constraints (max-length)
+        - Test default values (e.g. featured_image placeholder)
+        - Tested model relationships (user foreign key with CASCADE delete)
+        - Related name functionality
+    - **Card Form**
+        - Form validation with valid and invalid data
+        - Field constraints (e.g. max-length)
+        - Tested required fields (e.g. title, content)
+        - Optional field handling
+        - Form save functionality
+    - **Views**
+        - Authentication requirements (e.g. login_required decorator)
+        - Valid and invalid data handling
+        - User permission checks (e.g. can only edit/delete own cards)
+        - Success and error message testing
+        - Template rendering and redirects
+        - Edge cases and error handling
+        - Spin functionality
+        - CRUD operations, pagination, GET/POST requests
+- **About App:**
+    - **Models:**
+        - Model creation and validation
+        - String representation
+        - Field constraints (max-length, unique constraint)
+        - Default values (e.g. image placeholder)
+        - One-to-One field relationship
+        - Cascade delete behaviour
+    - **Forms:**
+        - Form validation with valid and invalid data
+        - Field constraints
+        - Required field validation
+        - Email format validation
+        - Form save functionality
+    - **Views:**
+        - Basic view functionality and template rendering
+        - Context data (about instance and form)
+        - Valid and invalid form submissions
+        - Form validation and error handling
+        - Database record creation
+        - Success and error messages
+        - Redirect behaviour after submission
+
 
 **Performance Testing:**
 
