@@ -53,13 +53,14 @@ Click link to see [**live project**](https://chaos-cards-de954de9fb2a.herokuapp.
     - [Design Rationale](#design-rationale)
     - [User Stories](#user-stories)
     - [Wireframes](#wireframes)
-    - [Database Design](database-design)
-3. [Key Features](#key-features)
-4. [Deployment](#deployment)
-5. [AI Implementation](#ai-implementation)
-6. [Testing](#testing)
-7. [Future Enhancements](#future-enhancements)
-8. [Credits](#credits)
+    - [Database Design](#database-design)
+3. [Agile Working](#agile-working)
+4. [Key Features](#key-features)
+5. [Deployment](#deployment)
+6. [AI Implementation](#ai-implementation)
+7. [Testing](#testing)
+8. [Future Enhancements](#future-enhancements)
+9. [Credits](#credits)
 
 ## UX Design:
 
@@ -282,11 +283,39 @@ My project involved a simple database structure with 4 models:
 
 ![ERD](docs/db/ERD-diagram.36.05.webp)
 
+## Agile Working:
+
+![Project Board](docs/design/project-board.png)
+
+During development, I followed an agile, iterative mindset to deliver a usable MVP and continually refine the product. Key elements included:
+
+- **Iterative testing and bug-fixing:** I regularly tested the application throughout development and addressed issues as they arose to maintain a stable baseline.
+- **Scope adaptation:** Due to life distractions and illness in the initial weeks, I intentionally scoped back the project to its bare-bones must-haves for the MVP. This allowed steady progress while preserving the option to flesh out future features planned in the backlog.
+- **Clear scope and intentions:** At the outset, I defined the project’s scope and objectives, created user stories that mapped to core functionality, and identified tasks to realize those stories.
+- **Visual project management:** I set up a [project board](https://github.com/users/JamieJB123/projects/9) to track work using 'To Do', 'In Progress', and 'Done' columns, with a 'Backlog' column to store future features. This structure helped maintain organization, manage workflow, and monitor progress toward milestones.
+- **Prioritization with MOSCOW:** I applied the MOSCOW method (Must-have, Should-have, Could-have, Won’t-have) to tag user stories. This prioritization supported disciplined scope management and ensured critical features were delivered first within the Kanban workflow.
+
+**Outcome:**
+
+The combination of iterative testing, disciplined scope management, and clear prioritization enabled a steady, transparent workflow focused on delivering a solid MVP while keeping room for future enhancements.
+
 ## Key Features:
 
 - **User Authentication:**
+
+    ![Registration / Log-in](docs/features/register-login.jpg)
+
+    ![Registration](docs/features/register.jpg)
+
+    ![Log-in](docs/features/log-in.jpg)
+
+    ![Log-out](docs/features/logout.jpg)
+
     Registration, login/logout, password management via Django’s built-in auth system.
 - **Card Management:**
+
+    ![CRUD Functionality](docs/features/crud.jpg)
+
     Full CRUD functionality
         - Each registered user can create their own cards.
         - Each registered user can edit their own cards.
@@ -297,10 +326,21 @@ My project involved a simple database structure with 4 models:
 - **All Cards View:**
     Each user can see all of the cards which they have created.
 - **Chaos Wheel:**
+
+    ![Spin Functionality](docs/features/spin.jpg)
+
     Each registered user can play the *Chaos Cards* game.
+
     If a user is registered, they can 'spin the wheel of chaos', and a random card from the user's collection will be selected and displayed to them.
+
     If the user has not yet created their own cards and tries to play the game, an informative message will be displayed and they are directed towards the 'Create Cards' page so that they can play.
+
+    ![No Cards](docs/features/nocards.jpg)
+
 - **Contact Form:**
+
+    ![Contact Form](docs/features/contact.jpg)
+
     Users can send feedback or queries, which is stored in the database and accessible in the admin panel.
 - **Responsive Design:**
     Works seamlessly across devices and screen sizes.
@@ -476,24 +516,31 @@ I also tried inserting security into the Django templates. However, none of this
 ### Lighthouse Test Results:
 
 **Logged-in Home:**
+
 ![Lighthouse test for logged-in home page](docs/testing/logged-in-home-lighthouse.png)
 
 **Logged-out Home:**
+
 ![Lighthouse test for logged-out home page](docs/testing/logout-lighthouse.png)
 
 **About Page:**
+
 ![Lighthouse test for About page](docs/testing/about-lighthouse.png)
 
 **My Cards Page:**
+
 ![Lighthouse test for 'My Cards' page](docs/testing/my-cards-lighthouse.png)
 
 **Registration Page:**
+
 ![Lighthouse test for registration page](docs/testing/register-lighthouse.png)
 
 **Log-in Page:**
+
 ![Lighthouse test for log-in page](docs/testing/logout-lighthouse.png)
 
 **Log-out Page:**
+
 ![Lighthouse test for log-out page](docs/testing/logout-lighthouse.png)
 
 ### Code Validation:
@@ -536,7 +583,7 @@ Used [JS Hint](https://jshint.com/) to validate JavaScript code (both JavaScript
 
 ## Credits
 
-**Frameworks & Tools:** Django, Bootstrap, Cloudinary, Heroku, GitHub
-**Icons:** Font Awesome
-**Testing Resources:** W3C validators, Lighthouse, Flake8, JS Hint
-**Code Institute:** All the teachers, support and resources.
+- **Frameworks & Tools:** Django, Bootstrap, Cloudinary, Heroku, GitHub
+- **Icons:** Font Awesome
+- **Testing Resources:** W3C validators, Lighthouse, Flake8, JS Hint
+- **Code Institute:** All the teachers, support and resources.
