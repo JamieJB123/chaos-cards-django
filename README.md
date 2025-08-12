@@ -317,13 +317,18 @@ The combination of iterative testing, disciplined scope management, and clear pr
     ![CRUD Functionality](docs/features/crud.jpg)
 
     Full CRUD functionality
-        - Each registered user can create their own cards.
-        - Each registered user can edit their own cards.
-        - Each registered users can delete their own cards.
-        - Users cannot see, edit or delete other users' cards.
+
+    - Each registered user can create their own cards.
+
+    - Each registered user can edit their own cards.
+
+    - Each registered users can delete their own cards.
+
+    - Users cannot see, edit or delete other users' cards.
 
     The superuser has full CRUD capabilities across users from the admin panel.
 - **All Cards View:**
+
     Each user can see all of the cards which they have created.
 - **Chaos Wheel:**
 
@@ -343,11 +348,12 @@ The combination of iterative testing, disciplined scope management, and clear pr
 
     Users can send feedback or queries, which is stored in the database and accessible in the admin panel.
 - **Responsive Design:**
+
     Works seamlessly across devices and screen sizes.
 
 ## Deployment
 
-**Hosting:** The project is deployed on [Heroku](https://www.heroku.com/) with a PostgreSQL database.
+**Hosting:** The project is deployed on [Heroku](https://www.heroku.com/) with a [PostgreSQL](https://www.postgresql.org/) database.
 
 **Steps to Deploy:**
 1. Create a new Heroku app
@@ -362,7 +368,7 @@ The combination of iterative testing, disciplined scope management, and clear pr
 7. Deploy website manually from Heroku
 
 **Security Considerations:**
-- ALl sensitive keys stored in environment variables (and kept out of publically published code)
+- All sensitive keys stored in environment variables (and kept out of publically published code)
 - Debug mode disabled in production
 - Allowed hosts restricted to Heroku domain and custom domains
 
