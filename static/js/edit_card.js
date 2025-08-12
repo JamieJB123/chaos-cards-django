@@ -25,7 +25,7 @@ for (let button of editButtons) {
         // Retrieve card ID from button's data atttribute
         let cardId = e.target.dataset.cardId;
         // Retrieve card title and content from DOM
-        let cardTitle = document.getElementById(`card-title${cardId}`)
+        let cardTitle = document.getElementById(`card-title${cardId}`);
         let cardContent = document.getElementById(`card-content${cardId}`);
         // Populate form fields with card data
         formTitleInput.value = cardTitle.innerText;
@@ -38,7 +38,7 @@ for (let button of editButtons) {
         // Refocus on title input field for user convenience
         formTitleInput.focus();
         formBody.classList.add('focus');
-})
+});
 }
 
 // Delete functionality for delete buttons
@@ -50,6 +50,6 @@ for (let button of deleteButtons) {
         deleteConfirm.href = `/my-cards/delete-card/${cardId}/`;
         // Show the delete confirmation modal
         deleteModal.show();
-    })
+    });
 }
 

@@ -12,7 +12,8 @@
 
 **Chaos Cards**
 
-is a Django-powered web application designed to inject unpredictability into daily life.
+*Chaos Cards* is a Django-powered web application designed to inject unpredictability into daily life.
+
 It allows users to create, edit, delete, and spin random “chaos cards” — each containing an activity or challenge.
 
 The project was built as a full-stack application with the aim of:
@@ -30,7 +31,7 @@ Anyone looking to break free from routine — from thrill-seekers to bored offic
 
 - User registration and login/logout
 - Creating, reading, editing, and deleting personal chaos cards
-- Viewing all cards created across the platform
+- Viewing all personal cards
 - Spinning a virtual “wheel of chaos” to select a random card
 - Contact/feedback submission form
 
@@ -65,18 +66,24 @@ Click link to see [**live project**](https://chaos-cards-de954de9fb2a.herokuapp.
 ### Design Rationale
 
 - **Layout:**
+
     Built for clarity and responsiveness. Navigation is persistent across pages, with clear CTAs for logging in, creating cards, and spinning the chaos wheel.
 - **Colour Scheme:**
+
     ![Colour Palette](docs/design/colour-palette.png)
+
     A vibrant yet minimal palette to balance playful chaos with readability. Bright accent colours highlight interactive elements. Dark green was chosen as the dominant background color as it was evocative of 'games' tables, gambling and chance - which was the theme of the website.
 - **Typography:**
+
     Clean, legible sans-serif fonts with varying weights for hierarchy.
 - **Accessibility:**
+
     - Semantic HTML
     - ARIA labels for interactive components
     - Sufficient colour contrast
     - Fully responsive design for mobile, tablet and desktop
 - **Images:**
+
     - Default images were AI generated using [Microsoft Copilot](https://copilot.microsoft.com/).
     - Image files were formatted, resized and compressed using [Squoosh](https://squoosh.app/) image optimisation software.
 
@@ -251,9 +258,11 @@ Tasks:
 The basic structure for Chaos Cards was worked out using the wireframe software [BALSAMIQ](https://balsamiq.com/), to guide design choices when developing. Over the project, the design changed and new sections were incorporated. Wireframes for desktop and mobile views were created.
 
 **Desktop View**
+
 ![Desktop Wireframes](docs/design/desktop-wireframe.jpg)
 
 **Mobile View**
+
 ![Mobile Wireframes](docs/design/wireframe-mobile.jpg)
 
 ### Database Design
@@ -262,13 +271,13 @@ An **Entity Relationship Diagram (ERD)** was planned and created to visualise th
 
 My project involved a simple database structure with 4 models:
 
-- **User**
+- **User:**
     The user was related to the cards in a one-to-many relationship. The user was also related to about in a one-to-one relationship. Only the superuser can create an about section.
-- **Card**
+- **Card:**
     The card was related to the user in a many-to-one relationship.
-- **About**
+- **About:**
     The about section was related to the user in a one-to-one relationship.
-- **Contact / Feedback**
+- **Contact / Feedback:**
     The contact / feedback model was unrelated to any of the other models. Anyone could use the contact form regardless of whether they are a registered user.
 
 ![ERD](docs/db/ERD-diagram.36.05.webp)
@@ -355,7 +364,7 @@ Aided in outlining test hooks and fixtures, then validated the approach with man
 
 **Boilerplate and Semantic Guidance**
 
-Offered boilerplate patterns for common tasks (e.g., serializers, views, forms, and tests) to accelerate setup while maintaining readability and consistency.
+Offered boilerplate patterns for common tasks (e.g. views, forms, and tests) to accelerate setup while maintaining readability and consistency.
 Recommended semantic and accessibility improvements, with final decisions and changes implemented by myself.
 
 **Small, Supervised Code Generation**
@@ -366,9 +375,11 @@ All generated code was reviewed, adapted, and integrated by me to ensure alignme
 ### Reflections:
 
 **Human-in-the-loop**
+
 AI outputs were considered as suggestions, not solutions. I critically evaluated relevance, context, and implications before adopting anything.
 
 **Accessibility and Semantics**
+
 Accessibility and semantic clarity were prioritized. AI suggestions were reviewed case-by-case and refined as needed.
 
 **Outcome**
@@ -457,6 +468,7 @@ The Cloudinary issue was more difficult to resolve. Cloudinary was not automatic
 I tried various solutions, such as adding the following code to my settings.py file:
 
 ![Cloudinary Security Fix Attempt](docs/testing/cloudinary-fix-attempt.png)
+
 (*With my own cloud name, api key and api secret inserted*)
 
 I also tried inserting security into the Django templates. However, none of this worked. In the end I resorted to hard coding https onto the front of the URLs in the templates and slicing the *http://* off. This has worked although it is a temporary solution.
@@ -502,23 +514,29 @@ Results:
 
 **Python:**
 
-Checked for PEP8 compliance with Flake8.
+Checked for PEP8 compliance with Flake8 and the [Code Institute Python Linter](https://pep8ci.herokuapp.com/).
 
 **JavaScript:**
 
-Used JS Hint.
+Used [JS Hint](https://jshint.com/) to validate JavaScript code (both JavaScript file in static folder and the small script inserted at the bottom of base.html). Alerted me to a few missing semi-colons.
 
 ## Future Enhancements:
 
-- Deck Management: Organise cards into decks with tagging
-- Ratings & Comments: Let users rate and comment on public cards
-- User Profiles & Stats: Track how often a user spins the wheel or completes cards
-- Social Sharing: Share chaos cards directly to social media
-- AI-Generated Cards: Suggest chaos ideas based on user interests
+- **Deck Management:** Organise cards into decks
+- **Default themed decks** which users could 'spin'
+- **Tagging:** Ability to tag your cards / decks with themes to enable users to search through public decks by theme
+- **Favourites / starred:** Users could 'star' their favourite cards / decks which they find
+- **Toggle Public / Private:** ability to choose public/private status for decks and cards
+- **Ratings & Comments:** Let users rate and comment on public cards and decks
+- **User Profiles & Stats:** User's would have their own personal profile page where they could see statistics about their website usage and interactions (e.g. number of spins, number of decks, comments, ratings etc.)
+- **Public profiles:** user's could also have a public facing profile
+- **Social Sharing:** Share chaos cards directly to social media
+- **AI-Generated Cards:** Suggest chaos ideas based on user interests
+- **Total Random Card:** User's could 'spin the wheel' from all public cards stored on the database
 
 ## Credits
 
 **Frameworks & Tools:** Django, Bootstrap, Cloudinary, Heroku, GitHub
 **Icons:** Font Awesome
-**Testing Resources:** W3C validators, Lighthouse, Flake8
+**Testing Resources:** W3C validators, Lighthouse, Flake8, JS Hint
 **Code Institute:** All the teachers, support and resources.
