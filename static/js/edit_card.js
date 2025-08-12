@@ -12,13 +12,7 @@ const deleteConfirm = document.getElementById('deleteConfirm');
 
 /**
  * Initialises edit functionality for the provided edit buttons.
- * It populates the form fields with the card's data for editing.
- * Retrieves the associated card's ID on click from buttons data attribute.
- * Fetches the content of the corresponding card and populates the form fields.
- * Updates the form Title to "Edit Card"
- * Sets the submit button text to "Update Card"
- * Sets the form action attritbute to the card's update URL ('edit_card/{card_id}/')
- */
+**/
 
 for (let button of editButtons) {
     button.addEventListener('click', (e) => {
@@ -37,6 +31,7 @@ for (let button of editButtons) {
         cardForm.setAttribute('action', `/my-cards/edit_card/${cardId}/`);
         // Refocus on title input field for user convenience
         formTitleInput.focus();
+        // Add highlight styling to form body to draw user attention
         formBody.classList.add('focus');
 });
 }

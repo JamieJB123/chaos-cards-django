@@ -1,6 +1,7 @@
 from django import forms
 from .models import CollaborateRequest
 
+# Feedback / collaborate form
 
 class FeedbackForm(forms.ModelForm):
     class Meta:

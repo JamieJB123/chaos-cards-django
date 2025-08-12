@@ -3,7 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-# Create your models here.
+# About Model
 
 class About(models.Model):
     """
@@ -17,6 +17,8 @@ class About(models.Model):
 
     def __str__(self):
         return self.title
+
+# Collaborate Model
 
 class CollaborateRequest(models.Model):
     """

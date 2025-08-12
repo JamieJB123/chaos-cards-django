@@ -1,6 +1,8 @@
 from django import forms
 from .models import Card
 
+# Form for creating cards
+
 class CardForm(forms.ModelForm):
     class Meta:
         model = Card

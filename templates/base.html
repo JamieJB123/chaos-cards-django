@@ -68,6 +68,7 @@
 
 
         <main class="flex-grow-1 main-bg d-flex flex-column">
+            <!-- Logged in status -->
             {% if user.is_authenticated%}
             <p class="text-end m-3">You are logged in as {{user}}</p>
             {% else %}
@@ -89,7 +90,7 @@
             </div>
             <div class="main-container flex-grow-1 d-flex flex-column justify-content-center">
             {% block content %}
-            <!-- Home Content Goes here -->
+            <!-- Other page content goes here -->
             {% endblock content %}
             </div>
         </main>

@@ -1,7 +1,8 @@
 from django.contrib import admin
 from .models import Card
 
-# Register your models here.
+# Register card model
+
 @admin.register(Card)
 class CardAdmin(admin.ModelAdmin):
     list_display = ('title', 'user', 'created_on')

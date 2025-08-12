@@ -4,7 +4,9 @@
 {% load static %}
 
     {% block content %}
+    
     <!-- Different homepages are displayed depending on whether the user is authenticated-->
+
     <!-- If user authenticated display basic hero message and option to play card game -->
     {% if user.is_authenticated %}
     <div class="container d-flex flex-column flex-md-row align-items-center my-auto">

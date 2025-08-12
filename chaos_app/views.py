@@ -31,6 +31,14 @@ def random_card_view(request):
     """
     Display a random card from the user's collection.
     If the user has no cards, display a message indicating that.
+    If the user has cards, select one at random and display it.
+
+    **Context**
+        random_card (Card): The randomly selected card instance, or None if no cards exist.
+        spin_attempted: A boolean flag indicating whether a spin was attempted (used to determine home page display).
+
+    **Template**
+        chaos_app/home.html
     """
     user_cards = Card.objects.filter(user=request.user)
     if user_cards.exists():
@@ -57,6 +65,17 @@ def user_cards_view(request):
     """
     Display a list of cards created by the logged-in user.
     The cards are ordered by the date they were created, in descending order.
+    Page is paginated. If >= 10 cards exist, show pagination controls.
+    If the user submits a form to create a new card, it is processed, saved and displayed.
+
+    **Context**
+        form (CardForm): The form for creating a new card.
+        cards (QuerySet): The paginated list of cards created by the user.
+        is_paginated (bool): Indicates whether pagination is applied.
+        page_obj (Page): The current page object for pagination.
+
+    **Template**
+        chaos_app/user_cards.html
     """
     if request.method == 'POST':
         form = CardForm(request.POST, request.FILES)
@@ -89,7 +108,14 @@ def user_cards_view(request):
 def edit_card_view(request, card_id):
     """
     Edit an existing card created by the logged-in user.
+    If the card is successfully edited a message is displayed.
 
+    **Context**
+        form (CardForm): The form for editing the card.
+        card (Card): The card instance being edited.
+
+    **Template**
+        chaos_app/user_cards.html
     """
     card = get_object_or_404(Card, id=card_id, user=request.user)
     if request.method == "POST":
@@ -110,6 +136,13 @@ def edit_card_view(request, card_id):
 def delete_card_view(request, card_id):
     """
     Delete an existing card created by the logged-in user.
+    If the card is successfully deleted, a success message is displayed.
+
+    **Context**
+        card (Card): The card instance being deleted.
+
+    **Template**
+        chaos_app/user_cards.html
     """
     card = get_object_or_404(Card, id=card_id, user=request.user)
     if card:
